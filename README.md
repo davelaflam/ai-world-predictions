@@ -39,21 +39,32 @@ The AI World Predictions App is designed to provide AI-driven predictions for wo
                │                │                      │
                ▼                ▼                      │
    ┌──────────────────┐    ┌───────────────┐           │
-   │ Pinecone VectorDB │    │ Market APIs   │◀───┐     │
+   │ Pinecone VectorDB │    │ Market APIs   │◀────┐     │
    └──────────────────┘    │ Kalshi + Poly │     │     │
                            └───────────────┘     │     │
                                                  │     │
 ┌─────────────┐        ┌─────────────┐           │     │
-│ Data Source │──────▶ │ Web Crawler │───────────┘     │
+│ Data Source │──────▶│ Web Crawler │────────────┘     │
 └─────────────┘        └─────────────┘                 │
          ▲ RSS/APIs                                    │
      ┌────────────┐                                    │
      │ Firecrawl  │                                    │
      └────────────┘                                    │
-             ▼                                         │
+             ▼                                          │
          ┌─────────────┐       ┌────────────────────────┐
          │ Pinecone DB │◀──────│ Embeddings & Upsertion │
          └─────────────┘       └────────────────────────┘
+
+Summary of Flow:
+•	React UI sends prediction requests to /predict with user input.
+•	The REST API processes the request, fetching:
+	•	Kalshi + Polymarket market data
+  •	Pinecone context via RAG
+•	Based on mode:
+	•	Fast: Direct GPT-4o response
+	•	Deep: RAG-enhanced GPT-4o
+	•	Council: Multi-agent GPT-based consensus
+•	Real-time embeddings are managed via the web crawler → Firecrawl → Pinecone pipeline.
 
 Backend Services:
 - REST API (Express.js)

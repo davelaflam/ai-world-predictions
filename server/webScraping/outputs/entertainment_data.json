@@ -2128,5 +2128,847 @@
                 "ticket_vendor": "Ticketmaster"
             }
         ]
+    },
+    {
+        "articles": [
+            {
+                "title": "Kevin Bacon reflects on ‘Apollo 13’ anniversary as NASA astronauts return to life on Earth: ‘I did feel for those people’",
+                "author": "Yahoo Entertainment",
+                "date": "April 2023",
+                "content": "Kevin Bacon discusses the uncanny timing of the 30th anniversary of 'Apollo 13' with the return of NASA astronauts Sunita Williams and Butch Wilmore from an extended space mission. Bacon reflects on the challenges faced by astronauts returning to Earth and discusses his career and new show, 'The Bondsman'.",
+                "topics": [
+                    "Kevin Bacon",
+                    "Apollo 13",
+                    "NASA",
+                    "The Bondsman"
+                ],
+                "peopleMentioned": [
+                    "Kevin Bacon",
+                    "Sunita Williams",
+                    "Butch Wilmore",
+                    "Ron Howard",
+                    "Maxwell Jenkins",
+                    "Jennifer Nettles",
+                    "Damon Herriman",
+                    "Beth Grant"
+                ],
+                "relatedLinks": [
+                    {
+                        "title": "Kevin Bacon",
+                        "url": "https://www.yahoo.com/topics/kevin-bacon/"
+                    },
+                    {
+                        "title": "returned home",
+                        "url": "https://www.yahoo.com/news/starliner-astronauts-suni-williams-and-butch-wilmore-are-finally-home-after-9-months-in-space-125800346.html"
+                    }
+                ]
+            },
+            {
+                "title": "NASA astronauts recount stay on space station",
+                "author": "Yahoo News",
+                "date": "March 2023",
+                "content": "NASA astronauts Butch Wilmore and Sunita Williams discuss their unexpected nine-month stay in space, experiences aboard the International Space Station, mission challenges, and the public support upon their return.",
+                "topics": [
+                    "NASA",
+                    "Space mission",
+                    "International Space Station"
+                ],
+                "peopleMentioned": [
+                    "Suni Williams",
+                    "Butch Wilmore",
+                    "Nick Hague"
+                ]
+            }
+        ]
+    },
+    {
+        "Lady Gaga Mayhem Ball Tour": {
+            "presale_info": {
+                "citi_presale": {
+                    "start": "2025-03-31T12:00:00",
+                    "end": "2025-04-02T11:00:00",
+                    "details": "Citi cardmembers access through Citi Entertainment program"
+                },
+                "verizon_presale": {
+                    "start": "2025-04-01T12:00:00",
+                    "end": "2025-04-02T11:00:00",
+                    "details": "Verizon Access exclusive presale"
+                },
+                "artist_presale": {
+                    "start": "2025-04-02T10:00:00",
+                    "end": "2025-04-02T15:00:00",
+                    "details": "Artist Presale sign-up period ended"
+                }
+            },
+            "general_sale": {
+                "start_date": "2025-04-03"
+            },
+            "ticket_pricing": {
+                "standard": {
+                    "min_price": 59.5,
+                    "max_price": 279.5
+                }
+            },
+            "north_america_dates": [
+                {
+                    "date": "2025-07-16",
+                    "city": "Las Vegas, NV",
+                    "venue": "T-Mobile Arena"
+                },
+                {
+                    "date": "2025-07-18",
+                    "city": "Las Vegas, NV",
+                    "venue": "T-Mobile Arena"
+                },
+                {
+                    "date": "2025-08-06",
+                    "city": "Seattle, WA",
+                    "venue": "Climate Pledge Arena"
+                },
+                {
+                    "date": "2025-08-07",
+                    "city": "Seattle, WA",
+                    "venue": "Climate Pledge Arena"
+                },
+                {
+                    "date": "2025-08-22",
+                    "city": "New York, NY",
+                    "venue": "Madison Square Garden"
+                },
+                {
+                    "date": "2025-08-23",
+                    "city": "New York, NY",
+                    "venue": "Madison Square Garden"
+                },
+                {
+                    "date": "2025-08-26",
+                    "city": "New York, NY",
+                    "venue": "Madison Square Garden"
+                },
+                {
+                    "date": "2025-08-31",
+                    "city": "Miami, FL",
+                    "venue": "Kaseya Center"
+                },
+                {
+                    "date": "2025-09-01",
+                    "city": "Miami, FL",
+                    "venue": "Kaseya Center"
+                },
+                {
+                    "date": "2025-09-10",
+                    "city": "Toronto, ON",
+                    "venue": "Scotiabank Arena"
+                },
+                {
+                    "date": "2025-09-11",
+                    "city": "Toronto, ON",
+                    "venue": "Scotiabank Arena"
+                },
+                {
+                    "date": "2025-09-15",
+                    "city": "Chicago, IL",
+                    "venue": "United Center"
+                },
+                {
+                    "date": "2025-09-17",
+                    "city": "Chicago, IL",
+                    "venue": "United Center"
+                }
+            ],
+            "uk_and_europe_dates": [
+                {
+                    "date": "2025-09-29",
+                    "city": "London, UK",
+                    "venue": "The O2"
+                },
+                {
+                    "date": "2025-09-30",
+                    "city": "London, UK",
+                    "venue": "The O2"
+                },
+                {
+                    "date": "2025-10-02",
+                    "city": "London, UK",
+                    "venue": "The O2"
+                },
+                {
+                    "date": "2025-10-07",
+                    "city": "Manchester, UK",
+                    "venue": "Co-op Live"
+                },
+                {
+                    "date": "2025-10-12",
+                    "city": "Stockholm, Sweden",
+                    "venue": "Avicii Arena"
+                },
+                {
+                    "date": "2025-10-13",
+                    "city": "Stockholm, Sweden",
+                    "venue": "Avicii Arena"
+                },
+                {
+                    "date": "2025-10-19",
+                    "city": "Milan, Italy",
+                    "venue": "Unipol Forum"
+                },
+                {
+                    "date": "2025-10-20",
+                    "city": "Milan, Italy",
+                    "venue": "Unipol Forum"
+                },
+                {
+                    "date": "2025-10-28",
+                    "city": "Barcelona, Spain",
+                    "venue": "Palau Sant Jordi"
+                },
+                {
+                    "date": "2025-10-29",
+                    "city": "Barcelona, Spain",
+                    "venue": "Palau Sant Jordi"
+                },
+                {
+                    "date": "2025-11-04",
+                    "city": "Berlin, Germany",
+                    "venue": "Uber Arena"
+                },
+                {
+                    "date": "2025-11-05",
+                    "city": "Berlin, Germany",
+                    "venue": "Uber Arena"
+                },
+                {
+                    "date": "2025-11-09",
+                    "city": "Amsterdam, Netherlands",
+                    "venue": "Ziggo Dome"
+                },
+                {
+                    "date": "2025-11-11",
+                    "city": "Antwerp, Belgium",
+                    "venue": "Sportpaleis Arena"
+                },
+                {
+                    "date": "2025-11-13",
+                    "city": "Lyon, France",
+                    "venue": "LDLC Arena"
+                },
+                {
+                    "date": "2025-11-14",
+                    "city": "Lyon, France",
+                    "venue": "LDLC Arena"
+                },
+                {
+                    "date": "2025-11-17",
+                    "city": "Paris, France",
+                    "venue": "Accor Arena"
+                },
+                {
+                    "date": "2025-11-18",
+                    "city": "Paris, France",
+                    "venue": "Accor Arena"
+                },
+                {
+                    "date": "2025-11-20",
+                    "city": "Paris, France",
+                    "venue": "Accor Arena"
+                }
+            ]
+        },
+        "Outside Lands 2025": {
+            "event_dates": {
+                "start_date": "2025-08-08",
+                "end_date": "2025-08-10"
+            },
+            "location": "Golden Gate Park, San Francisco, CA",
+            "ticket_info": {
+                "sale_date": "2025-03-26",
+                "pricing": {
+                    "general_admission": "$499",
+                    "ga_plus": "$759",
+                    "vip": "$1,199",
+                    "golden_gate_club": "$5,299"
+                }
+            },
+            "headliners": [
+                "Tyler, The Creator",
+                "Hozier",
+                "Doja Cat"
+            ],
+            "other_performers": [
+                "Vampire Weekend",
+                "Gracie Abrams",
+                "Doechii",
+                "Jamie xx",
+                "Ludacris",
+                "Black Coffee",
+                "Claude VonStroke",
+                "Floating Points",
+                "...and many more"
+            ]
+        },
+        "Jonas Brothers 'Living The Dream Tour'": {
+            "tour_dates": {
+                "start_date": "2025-08-10",
+                "end_date": "2025-11-14"
+            },
+            "presale_info": {
+                "artist_presale_start": "2025-03-26",
+                "artist_presale_end": "2025-03-27",
+                "general_sale_start": "2025-03-28"
+            },
+            "special_guests": [
+                "Marshmello",
+                "The All-American Rejects",
+                "Boys Like Girls"
+            ],
+            "performing_venues": [
+                "MetLife Stadium, East Rutherford, NJ",
+                "Nationals Park, Washington, DC",
+                "Citizens Bank Park, Philadelphia, PA",
+                "Hersheypark Stadium, Hershey, PA",
+                "Rogers Centre, Toronto, ON",
+                "Fenway Park, Boston, MA",
+                "...and more"
+            ]
+        }
+    },
+    {
+        "ArticleDetails": [
+            {
+                "Title": "Kevin Bacon reflects on ‘Apollo 13’ anniversary as NASA astronauts return to life on Earth: ‘I did feel for those people’",
+                "Content": {
+                    "MainSubject": "Kevin Bacon reflects on the uncanny timing of the 'Apollo 13' anniversary coinciding with the return of NASA astronauts after an extended mission.",
+                    "Subtopics": [
+                        {
+                            "Topic": "Astronauts' Return",
+                            "Details": "U.S. astronauts Butch Wilmore and Suni Williams returned from a nine-month space mission, initially planned for eight days."
+                        },
+                        {
+                            "Topic": "Kevin Bacon's Reflection",
+                            "Details": [
+                                "Kevin Bacon felt empathy for the astronauts due to their extended mission.",
+                                "Bacon compares the situation to the plot of 'Apollo 13'."
+                            ]
+                        },
+                        {
+                            "Topic": "The Bondsman Series",
+                            "Details": [
+                                "Bacon stars in 'The Bondsman', released April 3 on Prime Video.",
+                                "The show involves horror-comedy elements with a focus on a demon bounty hunter."
+                            ]
+                        },
+                        {
+                            "Topic": "Music Collaboration",
+                            "Details": "Bacon collaborates on series music with co-star Jennifer Nettles."
+                        },
+                        {
+                            "Topic": "Show Production",
+                            "Details": [
+                                "Bacon performed many of his own stunts.",
+                                "Music plays a pivotal role in the series."
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "AdditionalNotes": [
+                    {
+                        "Note": "The document contains miscellaneous entertainment news snippets unrelated to the main article."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "articles": [
+            {
+                "title": "Lady Gaga 2025 ‘Mayhem Ball Tour' presale: How to get tickets to the North American dates today",
+                "details": {
+                    "artist": "Lady Gaga",
+                    "tour": "Mayhem Ball Tour",
+                    "album": "Mayhem",
+                    "tour_type": "Arena",
+                    "regions": [
+                        "North America",
+                        "Europe",
+                        "UK"
+                    ],
+                    "presale": [
+                        {
+                            "type": "Citi Card",
+                            "start_date": "2025-03-31",
+                            "end_date": "2025-04-02"
+                        },
+                        {
+                            "type": "Verizon",
+                            "start_date": "2025-04-01",
+                            "end_date": "2025-04-02"
+                        },
+                        {
+                            "type": "Artist",
+                            "start_date": "2025-04-02",
+                            "end_date": "2025-04-03"
+                        }
+                    ],
+                    "ticket_prices": {
+                        "standard": {
+                            "min": 59.5,
+                            "max": 279.5
+                        },
+                        "resale_sites": [
+                            {
+                                "name": "Vivid Seats",
+                                "price_range": {
+                                    "min": 442,
+                                    "max": 1275
+                                }
+                            },
+                            {
+                                "name": "SeatGeek",
+                                "price_range": {
+                                    "min": 252,
+                                    "max": 3399
+                                }
+                            },
+                            {
+                                "name": "StubHub",
+                                "price_range": {
+                                    "min": 314,
+                                    "max": 960
+                                }
+                            }
+                        ]
+                    },
+                    "North_America_dates": [
+                        {
+                            "date": "Jul 16",
+                            "location": "Las Vegas, NV",
+                            "venue": "T-Mobile Arena"
+                        },
+                        {
+                            "date": "Jul 18",
+                            "location": "Las Vegas, NV",
+                            "venue": "T-Mobile Arena"
+                        },
+                        {
+                            "date": "Aug 06",
+                            "location": "Seattle, WA",
+                            "venue": "Climate Pledge Arena"
+                        },
+                        {
+                            "date": "Aug 07",
+                            "location": "Seattle, WA",
+                            "venue": "Climate Pledge Arena"
+                        },
+                        {
+                            "date": "Aug 22",
+                            "location": "New York, NY",
+                            "venue": "Madison Square Garden"
+                        },
+                        {
+                            "date": "Aug 23",
+                            "location": "New York, NY",
+                            "venue": "Madison Square Garden"
+                        },
+                        {
+                            "date": "Aug 26",
+                            "location": "New York, NY",
+                            "venue": "Madison Square Garden"
+                        },
+                        {
+                            "date": "Aug 31",
+                            "location": "Miami, FL",
+                            "venue": "Kaseya Center"
+                        },
+                        {
+                            "date": "Sep 01",
+                            "location": "Miami, FL",
+                            "venue": "Kaseya Center"
+                        },
+                        {
+                            "date": "Sep 10",
+                            "location": "Toronto, ON",
+                            "venue": "Scotiabank Arena"
+                        },
+                        {
+                            "date": "Sep 11",
+                            "location": "Toronto, ON",
+                            "venue": "Scotiabank Arena"
+                        },
+                        {
+                            "date": "Sep 15",
+                            "location": "Chicago, IL",
+                            "venue": "United Center"
+                        },
+                        {
+                            "date": "Sep 17",
+                            "location": "Chicago, IL",
+                            "venue": "United Center"
+                        }
+                    ],
+                    "UK_Europe_dates": [
+                        {
+                            "date": "Sep 29",
+                            "location": "London, UK",
+                            "venue": "The O2"
+                        },
+                        {
+                            "date": "Sep 30",
+                            "location": "London, UK",
+                            "venue": "The O2"
+                        },
+                        {
+                            "date": "Oct 02",
+                            "location": "London, UK",
+                            "venue": "The O2"
+                        },
+                        {
+                            "date": "Oct 07",
+                            "location": "Manchester, UK",
+                            "venue": "Co-op Live"
+                        },
+                        {
+                            "date": "Oct 12",
+                            "location": "Stockholm, Sweden",
+                            "venue": "Avicii Arena"
+                        },
+                        {
+                            "date": "Oct 13",
+                            "location": "Stockholm, Sweden",
+                            "venue": "Avicii Arena"
+                        },
+                        {
+                            "date": "Oct 19",
+                            "location": "Milan, Italy",
+                            "venue": "Unipol Forum"
+                        },
+                        {
+                            "date": "Oct 20",
+                            "location": "Milan, Italy",
+                            "venue": "Unipol Forum"
+                        },
+                        {
+                            "date": "Oct 28",
+                            "location": "Barcelona, Spain",
+                            "venue": "Palau Sant Jordi"
+                        },
+                        {
+                            "date": "Oct 29",
+                            "location": "Barcelona, Spain",
+                            "venue": "Palau Sant Jordi"
+                        },
+                        {
+                            "date": "Nov 04",
+                            "location": "Berlin, Germany",
+                            "venue": "Uber Arena"
+                        },
+                        {
+                            "date": "Nov 05",
+                            "location": "Berlin, Germany",
+                            "venue": "Uber Arena"
+                        },
+                        {
+                            "date": "Nov 09",
+                            "location": "Amsterdam, Netherlands",
+                            "venue": "Ziggo Dome"
+                        },
+                        {
+                            "date": "Nov 11",
+                            "location": "Antwerp, Belgium",
+                            "venue": "Sportpaleis Arena"
+                        },
+                        {
+                            "date": "Nov 13",
+                            "location": "Lyon, France",
+                            "venue": "LDLC Arena"
+                        },
+                        {
+                            "date": "Nov 14",
+                            "location": "Lyon, France",
+                            "venue": "LDLC Arena"
+                        },
+                        {
+                            "date": "Nov 17",
+                            "location": "Paris, France",
+                            "venue": "Accor Arena"
+                        },
+                        {
+                            "date": "Nov 18",
+                            "location": "Paris, France",
+                            "venue": "Accor Arena"
+                        },
+                        {
+                            "date": "Nov 20",
+                            "location": "Paris, France",
+                            "venue": "Accor Arena"
+                        }
+                    ]
+                }
+            },
+            {
+                "title": "Outside Lands 2025: How to buy tickets to see Tyler, The Creator, Hozier, Doja Cat and more this summer",
+                "details": {
+                    "event": "Outside Lands 2025",
+                    "location": "San Francisco, Golden Gate Park",
+                    "dates": "August 8-10, 2025",
+                    "ticket_sale_date": "2025-03-26",
+                    "ticket_prices": {
+                        "general_admission": 499,
+                        "general_admission_plus": 759,
+                        "VIP": 1199,
+                        "Golden_Gate_Club": 5299
+                    },
+                    "headliners": [
+                        "Tyler, The Creator",
+                        "Hozier",
+                        "Doja Cat"
+                    ],
+                    "other_performers": [
+                        "Vampire Weekend",
+                        "Glass Animals",
+                        "Gracie Abrams",
+                        "Jamie xx",
+                        "Doechii",
+                        "Ludacris",
+                        "Jorja Smith",
+                        "Black Coffee",
+                        "Claude VonStroke",
+                        "Floating Points",
+                        "and many more"
+                    ]
+                }
+            },
+            {
+                "title": "Jonas Brothers announce 20th anniversary 'Living The Dream Tour'",
+                "details": {
+                    "artist": "Jonas Brothers",
+                    "tour": "Jonas20: Living The Dream",
+                    "tour_type": "Stadium",
+                    "special_guests": [
+                        "Marshmello",
+                        "The All-American Rejects",
+                        "Boys Like Girls"
+                    ],
+                    "North_America_dates": [
+                        {
+                            "date": "Aug 10",
+                            "location": "East Rutherford, NJ",
+                            "venue": "MetLife Stadium"
+                        },
+                        {
+                            "date": "Aug 12",
+                            "location": "Washington, DC",
+                            "venue": "Nationals Park"
+                        },
+                        {
+                            "date": "Aug 14",
+                            "location": "Philadelphia, PA",
+                            "venue": "Citizens Bank Park"
+                        },
+                        {
+                            "date": "Aug 17",
+                            "location": "Hershey, PA",
+                            "venue": "Hersheypark Stadium"
+                        },
+                        {
+                            "date": "Aug 21",
+                            "location": "Toronto, ON",
+                            "venue": "Rogers Centre"
+                        },
+                        {
+                            "date": "Aug 23",
+                            "location": "Boston, MA",
+                            "venue": "Fenway Park"
+                        },
+                        {
+                            "date": "Aug 26",
+                            "location": "Chicago, IL",
+                            "venue": "Wrigley Field"
+                        },
+                        {
+                            "date": "Aug 28",
+                            "location": "Detroit, MI",
+                            "venue": "Comerica Park"
+                        },
+                        {
+                            "date": "Aug 31",
+                            "location": "Arlington, TX",
+                            "venue": "Globe Life Field"
+                        },
+                        {
+                            "date": "Sep 06",
+                            "location": "Los Angeles, CA",
+                            "venue": "Dodger Stadium"
+                        },
+                        {
+                            "date": "Sep 18",
+                            "location": "Vancouver, BC",
+                            "venue": "Rogers Arena"
+                        },
+                        {
+                            "date": "Sep 20",
+                            "location": "Portland, OR",
+                            "venue": "Moda Center"
+                        },
+                        {
+                            "date": "Sep 22",
+                            "location": "Seattle, WA",
+                            "venue": "Climate Pledge Arena"
+                        },
+                        {
+                            "date": "Sep 25",
+                            "location": "San Francisco, CA",
+                            "venue": "Chase Center"
+                        },
+                        {
+                            "date": "Sep 26",
+                            "location": "Sacramento, CA",
+                            "venue": "Golden 1 Center"
+                        },
+                        {
+                            "date": "Sep 28",
+                            "location": "Phoenix, AZ",
+                            "venue": "PHX Arena"
+                        },
+                        {
+                            "date": "Oct 02",
+                            "location": "Denver, CO",
+                            "venue": "Ball Arena"
+                        },
+                        {
+                            "date": "Oct 04",
+                            "location": "Omaha, NE",
+                            "venue": "CHI Health Center"
+                        },
+                        {
+                            "date": "Oct 05",
+                            "location": "Des Moines, IA",
+                            "venue": "Wells Fargo Arena"
+                        },
+                        {
+                            "date": "Oct 07",
+                            "location": "Kansas City, MO",
+                            "venue": "T-Mobile Center"
+                        },
+                        {
+                            "date": "Oct 08",
+                            "location": "St. Louis, MO",
+                            "venue": "Enterprise Center"
+                        },
+                        {
+                            "date": "Oct 10",
+                            "location": "St. Paul, MN",
+                            "venue": "Xcel Energy Center"
+                        },
+                        {
+                            "date": "Oct 12",
+                            "location": "Milwaukee, WI",
+                            "venue": "Fiserv Forum"
+                        },
+                        {
+                            "date": "Oct 14",
+                            "location": "Nashville, TN",
+                            "venue": "Bridgestone Arena"
+                        },
+                        {
+                            "date": "Oct 16",
+                            "location": "Tulsa, OK",
+                            "venue": "BOK Center"
+                        },
+                        {
+                            "date": "Oct 17",
+                            "location": "Austin, TX",
+                            "venue": "Moody Center"
+                        },
+                        {
+                            "date": "Oct 18",
+                            "location": "San Antonio, TX",
+                            "venue": "Frost Bank Center"
+                        },
+                        {
+                            "date": "Oct 19",
+                            "location": "Houston, TX",
+                            "venue": "Toyota Center"
+                        },
+                        {
+                            "date": "Oct 22",
+                            "location": "Tampa, FL",
+                            "venue": "Amalie Arena"
+                        },
+                        {
+                            "date": "Oct 24",
+                            "location": "Sunrise, FL",
+                            "venue": "Amerant Bank Arena"
+                        },
+                        {
+                            "date": "Oct 26",
+                            "location": "Orlando, FL",
+                            "venue": "Kia Center"
+                        },
+                        {
+                            "date": "Oct 28",
+                            "location": "Atlanta, GA",
+                            "venue": "State Farm Arena"
+                        },
+                        {
+                            "date": "Oct 29",
+                            "location": "Raleigh, NC",
+                            "venue": "Lenovo Center"
+                        },
+                        {
+                            "date": "Nov 01",
+                            "location": "Lexington, KY",
+                            "venue": "Rupp Arena"
+                        },
+                        {
+                            "date": "Nov 02",
+                            "location": "Indianapolis, IN",
+                            "venue": "Gainbridge Fieldhouse"
+                        },
+                        {
+                            "date": "Nov 04",
+                            "location": "Knoxville, TN",
+                            "venue": "Thompson-Boling Arena"
+                        },
+                        {
+                            "date": "Nov 05",
+                            "location": "Charlotte, NC",
+                            "venue": "Spectrum Center"
+                        },
+                        {
+                            "date": "Nov 06",
+                            "location": "Columbia, SC",
+                            "venue": "Colonial Life Arena"
+                        },
+                        {
+                            "date": "Nov 08",
+                            "location": "Columbus, OH",
+                            "venue": "Schottenstein Center"
+                        },
+                        {
+                            "date": "Nov 09",
+                            "location": "Buffalo, NY",
+                            "venue": "KeyBank Center"
+                        },
+                        {
+                            "date": "Nov 11",
+                            "location": "Cleveland, OH",
+                            "venue": "Rocket Arena"
+                        },
+                        {
+                            "date": "Nov 12",
+                            "location": "Pittsburgh, PA",
+                            "venue": "PPG Paints Arena"
+                        },
+                        {
+                            "date": "Nov 14",
+                            "location": "Uncasville, CT",
+                            "venue": "Mohegan Sun Arena"
+                        }
+                    ]
+                }
+            }
+        ]
     }
 ]

@@ -12,7 +12,8 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
 const pinecone = new Pinecone({ apiKey: process.env.PINECONE_API_KEY || '' })
 
 const PINECONE_INDEX = process.env.PINECONE_INDEX || 'ai-world-predictions'
-const filePath = path.join(process.cwd(), 'server/webScraping/outputs/entertainment_data.json')
+const entertainmentFilePath = path.join(process.cwd(), 'server/webScraping/outputs/entertainment_data.json')
+const politicsFilePath = path.join(process.cwd(), 'server/webScraping/outputs/politics_data.json')
 
 function extractMetadata(article: any): {
   title: string
@@ -54,6 +55,14 @@ function extractMetadata(article: any): {
 }
 
 export async function ingestEntertainmentArticles() {
+  await ingestArticlesFromFile(entertainmentFilePath, 'entertainment')
+}
+
+export async function ingestPoliticsArticles() {
+  await ingestArticlesFromFile(politicsFilePath, 'politics')
+}
+
+async function ingestArticlesFromFile(filePath: string, label: string) {
   try {
     const rawData = fs.readFileSync(filePath, 'utf-8')
     const articles = JSON.parse(rawData)
@@ -81,7 +90,7 @@ export async function ingestEntertainmentArticles() {
         }
 
         return {
-          id: `article-${i}-${Date.now()}`,
+          id: `${label}-article-${i}-${Date.now()}`,
           values: embedding.data[0].embedding,
           metadata,
         }
@@ -89,9 +98,9 @@ export async function ingestEntertainmentArticles() {
     )
 
     await index.upsert(vectors)
-    LoggerService.info(`✅ Successfully upserted ${vectors.length} articles to Pinecone.`)
+    LoggerService.info(`✅ Successfully upserted ${vectors.length} ${label} articles to Pinecone.`)
   } catch (error) {
-    LoggerService.error(`🆘 Failed to upsert articles to Pinecone: ${error}`)
+    LoggerService.error(`🆘 Failed to upsert ${label} articles to Pinecone: ${error}`)
   }
 }
 
@@ -115,5 +124,15 @@ function flattenArticles(data: any): any[] {
 }
 
 if (process.argv[1].includes('pineconeIngest.ts')) {
-  ingestEntertainmentArticles()
+  const scriptName = process.argv[2]
+
+  ;(async () => {
+    if (scriptName === 'politics') {
+      const { ingestPoliticsArticles } = await import('./pineconeIngest.js')
+      await ingestPoliticsArticles()
+    } else {
+      const { ingestEntertainmentArticles } = await import('./pineconeIngest.js')
+      await ingestEntertainmentArticles()
+    }
+  })()
 }

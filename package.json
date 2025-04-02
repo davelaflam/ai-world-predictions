@@ -11,6 +11,7 @@
     "server": "nodemon --exec node --no-warnings=ExperimentalWarning --loader ts-node/esm ./server/server.ts",
     "test": "jest",
     "run:entertainment": "tsx ./server/webScraping/crawlers/entertainmentCrawler.ts",
+    "run:politics": "tsx ./server/webScraping/crawlers/politicsCrawler.ts",
     "upsert-batch": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./offline/upsert-batch.ts"
   },
   "keywords": [],
