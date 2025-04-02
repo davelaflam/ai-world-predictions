@@ -1,4 +1,3 @@
-// server/services/pineconeIngest.ts
 import fs from 'fs'
 import path from 'path'
 import { OpenAI } from 'openai'
@@ -14,6 +13,8 @@ const pinecone = new Pinecone({ apiKey: process.env.PINECONE_API_KEY || '' })
 const PINECONE_INDEX = process.env.PINECONE_INDEX || 'ai-world-predictions'
 const entertainmentFilePath = path.join(process.cwd(), 'server/webScraping/outputs/entertainment_data.json')
 const politicsFilePath = path.join(process.cwd(), 'server/webScraping/outputs/politics_data.json')
+const sportsFilePath = path.join(process.cwd(), 'server/webScraping/outputs/sports_data.json')
+const worldNewsFilePath = path.join(process.cwd(), 'server/webScraping/outputs/world_news_data.json')
 
 function extractMetadata(article: any): {
   title: string
@@ -60,6 +61,14 @@ export async function ingestEntertainmentArticles() {
 
 export async function ingestPoliticsArticles() {
   await ingestArticlesFromFile(politicsFilePath, 'politics')
+}
+
+export async function ingestSportsArticles() {
+  await ingestArticlesFromFile(sportsFilePath, 'sports')
+}
+
+export async function ingestWorldNewsArticles() {
+  await ingestArticlesFromFile(worldNewsFilePath, 'world-news')
 }
 
 async function ingestArticlesFromFile(filePath: string, label: string) {
@@ -130,6 +139,12 @@ if (process.argv[1].includes('pineconeIngest.ts')) {
     if (scriptName === 'politics') {
       const { ingestPoliticsArticles } = await import('./pineconeIngest.js')
       await ingestPoliticsArticles()
+    } else if (scriptName === 'sports') {
+      const { ingestSportsArticles } = await import('./pineconeIngest.js')
+      await ingestSportsArticles()
+    } else if (scriptName === 'world-news') {
+      const { ingestWorldNewsArticles } = await import('./pineconeIngest.js')
+      await ingestWorldNewsArticles()
     } else {
       const { ingestEntertainmentArticles } = await import('./pineconeIngest.js')
       await ingestEntertainmentArticles()

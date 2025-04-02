@@ -18,7 +18,7 @@ import {
 } from '@mui/material'
 import { styled } from '@mui/material/styles'
 
-const BACKEND_PORT = process.env.REACT_APP_BACKEND_API_PORT || 5000
+const BACKEND_PORT = process.env.REACT_APP_BACKEND_API_PORT || 3000
 const BACKEND_URL = `http://localhost:${BACKEND_PORT}`
 
 interface CouncilConsensus {

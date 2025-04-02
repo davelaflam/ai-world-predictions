@@ -11,7 +11,9 @@
     "server": "nodemon --exec node --no-warnings=ExperimentalWarning --loader ts-node/esm ./server/server.ts",
     "test": "jest",
     "run:entertainment": "tsx ./server/webScraping/crawlers/entertainmentCrawler.ts",
-    "run:politics": "tsx ./server/webScraping/crawlers/politicsCrawler.ts",
+    "run:politics": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./server/webScraping/crawlers/politicsCrawler.ts",
+    "run:sports": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./server/webScraping/crawlers/sportsCrawler.ts",
+    "run:world-news": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./server/webScraping/crawlers/worldNewsCrawler.ts",
     "upsert-batch": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./offline/upsert-batch.ts"
   },
   "keywords": [],

@@ -1,8 +1,8 @@
 import dotenv from 'dotenv'
 import { LoggerService } from '../../services/logger/LoggerService.js'
-import { extractEntertainmentLinks } from '../freshRSS/entertainmentLinks.js'
+import { extractWorldNewsLinks } from '../freshRSS/worldNewsLinks.js'
 import { saveJsonPretty } from '../utils/jsonOutputParser.js'
-import { ingestEntertainmentArticles } from './../../services/pineconeIngest.js'
+import { ingestWorldNewsArticles } from '../../services/pineconeIngest.js'
 import FirecrawlApp from 'firecrawl'
 import { OpenAI } from 'openai'
 
@@ -18,14 +18,14 @@ const openai = new OpenAI({
 
 const app = new FirecrawlApp(FIRECRAWL_API_KEY ? { apiKey: FIRECRAWL_API_KEY } : {})
 
-async function runEntertainmentScraper() {
+async function runWorldNewsScraper() {
   try {
-    const entertainmentLinks = await extractEntertainmentLinks()
-    LoggerService.info(`Total entertainment links found: ${entertainmentLinks.length}`)
+    const worldNewsLinks = await extractWorldNewsLinks()
+    LoggerService.info(`Total world news links found: ${worldNewsLinks.length}`)
 
-    for (const link of entertainmentLinks.slice(0, 2)) {
+    for (const link of worldNewsLinks.slice(0, 2)) {
       try {
-        LoggerService.info(`Scraping entertainment link: ${link}`)
+        LoggerService.info(`Scraping world news link: ${link}`)
 
         const crawledData = await app.crawlUrl(link, {
           limit: 1,
@@ -33,7 +33,17 @@ async function runEntertainmentScraper() {
           ignoreSitemap: true,
           scrapeOptions: {
             formats: ['markdown'],
-            excludeTags: ['#ybar', '#ad', '.advertisement', '.sponsored-content'],
+            excludeTags: [
+              '#ybar',
+              '#sports-module-scorestrip',
+              '#ad',
+              '.advertisement',
+              '.sponsored-content',
+              '.link-yahoo-link',
+              '.caas-img-container',
+              '.caas-img-lightbox',
+              '.link',
+            ],
             includeTags: ['div.content', 'h1', 'p'],
             onlyMainContent: true,
             waitFor: 3000,
@@ -59,7 +69,7 @@ async function runEntertainmentScraper() {
               {
                 role: 'system',
                 content:
-                  'You are an expert at structured data extraction. Extract structured entertainment article details from the markdown. Format the output as valid JSON.',
+                  'You are an expert at structured data extraction. Extract structured world news article details from the markdown. Format the output as valid JSON with fields: title, author, date, url, summary, quote, figures (array), organizations (array). If any field is missing, use "Unknown" or an empty array.',
               },
               {
                 role: 'user',
@@ -69,14 +79,14 @@ async function runEntertainmentScraper() {
             response_format: { type: 'json_object' },
           })
 
-          if (!completion.choices || completion.choices.length === 0 || !completion.choices[0].message?.content) {
+          if (!completion.choices?.length || !completion.choices[0].message?.content) {
             LoggerService.warning(`No structured response received from OpenAI for ${link}`)
             continue
           }
 
           try {
-            const entertainmentDataJson = JSON.parse(completion.choices[0].message.content)
-            await saveJsonPretty(entertainmentDataJson, 'entertainment_data.json')
+            const worldNewsJson = JSON.parse(completion.choices[0].message.content)
+            await saveJsonPretty(worldNewsJson, 'world_news_data.json')
           } catch (parseError) {
             LoggerService.error(`Failed to parse OpenAI response for ${link}: ${parseError}`)
           }
@@ -86,12 +96,10 @@ async function runEntertainmentScraper() {
       }
     }
 
-    // 🔗 CHAIN TO INGEST DATA INTO PINECONE
-    await ingestEntertainmentArticles()
+    await ingestWorldNewsArticles()
   } catch (error) {
-    LoggerService.error(`Failed to run entertainment scraper: ${error}`)
+    LoggerService.error(`Failed to run world news scraper: ${error}`)
   }
 }
 
-// Run the scraper and ensure the promise is handled properly
-await runEntertainmentScraper()
+await runWorldNewsScraper()
