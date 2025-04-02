@@ -1785,5 +1785,348 @@
                 "twitter_source": "https://x.com/sweeneydailyx/status/1906363666808652006/photo/1"
             }
         ]
+    },
+    {
+        "title": "Kevin Bacon reflects on ‘Apollo 13’ anniversary as NASA astronauts return to life on Earth: ‘I did feel for those people’",
+        "content": {
+            "celebrity": "Kevin Bacon",
+            "film": "Apollo 13",
+            "anniversary": "30th anniversary",
+            "context": {
+                "description": "Bacon reflects on similarities between 'Apollo 13' and the recent extended mission of NASA astronauts.",
+                "related_astro_event": {
+                    "astronauts": [
+                        "Butch Wilmore",
+                        "Suni Williams"
+                    ],
+                    "duration": "9 months",
+                    "initial_plan": "8 days",
+                    "return_date": "March 18"
+                },
+                "quotes": [
+                    {
+                        "text": "I did feel for those people.",
+                        "context": "Reflecting on the astronauts' extended mission."
+                    },
+                    {
+                        "text": "Especially in their case, where you took off and you thought you were coming right back home.",
+                        "context": "Comparison to 'Apollo 13' plot."
+                    },
+                    {
+                        "text": "There must’ve been such a challenge for everybody involved.",
+                        "context": "Understanding the difficulties faced by the astronauts."
+                    }
+                ]
+            },
+            "new_project": {
+                "title": "The Bondsman",
+                "platform": "Prime Video",
+                "start_streaming_date": "April 3",
+                "genre": "horror-comedy",
+                "role": {
+                    "character_description": "demon bounty hunter and father",
+                    "additional_info": "demon bounty hunter Hub Halloran resurrected by the devil"
+                },
+                "quote_about_role": "Battling the demon cheerleader underwater is like ... This is so fun and weird and hard and physical and cold.",
+                "collaborators": [
+                    {
+                        "name": "Jennifer Nettles",
+                        "role": "ex-wife/fellow musician",
+                        "character_name": "Maryanne",
+                        "quote": "It was very natural. It was very easy. He is a fantastic writer."
+                    }
+                ],
+                "music_element": {
+                    "description": "Music plays a pivotal role.",
+                    "details": "the bounty hunter writes and performs songs with Maryanne"
+                }
+            }
+        }
+    },
+    {
+        "events": [
+            {
+                "artist": "Lady Gaga",
+                "tour_name": "Mayhem Ball Tour 2025",
+                "album": "Mayhem",
+                "tour_dates": {
+                    "North_America": [
+                        {
+                            "date": "July 16, 2025",
+                            "location": "Las Vegas, NV",
+                            "venue": "T-Mobile Arena"
+                        },
+                        {
+                            "date": "July 18, 2025",
+                            "location": "Las Vegas, NV",
+                            "venue": "T-Mobile Arena"
+                        },
+                        {
+                            "date": "August 6, 2025",
+                            "location": "Seattle, WA",
+                            "venue": "Climate Pledge Arena"
+                        },
+                        {
+                            "date": "August 7, 2025",
+                            "location": "Seattle, WA",
+                            "venue": "Climate Pledge Arena"
+                        },
+                        {
+                            "date": "August 22, 2025",
+                            "location": "New York, NY",
+                            "venue": "Madison Square Garden"
+                        },
+                        {
+                            "date": "August 23, 2025",
+                            "location": "New York, NY",
+                            "venue": "Madison Square Garden"
+                        },
+                        {
+                            "date": "August 26, 2025",
+                            "location": "New York, NY",
+                            "venue": "Madison Square Garden"
+                        },
+                        {
+                            "date": "August 31, 2025",
+                            "location": "Miami, FL",
+                            "venue": "Kaseya Center"
+                        },
+                        {
+                            "date": "September 1, 2025",
+                            "location": "Miami, FL",
+                            "venue": "Kaseya Center"
+                        },
+                        {
+                            "date": "September 10, 2025",
+                            "location": "Toronto, ON",
+                            "venue": "Scotiabank Arena"
+                        },
+                        {
+                            "date": "September 11, 2025",
+                            "location": "Toronto, ON",
+                            "venue": "Scotiabank Arena"
+                        },
+                        {
+                            "date": "September 15, 2025",
+                            "location": "Chicago, IL",
+                            "venue": "United Center"
+                        },
+                        {
+                            "date": "September 17, 2025",
+                            "location": "Chicago, IL",
+                            "venue": "United Center"
+                        }
+                    ],
+                    "Europe_and_UK": [
+                        {
+                            "date": "September 29, 2025",
+                            "location": "London, UK",
+                            "venue": "The O2"
+                        },
+                        {
+                            "date": "September 30, 2025",
+                            "location": "London, UK",
+                            "venue": "The O2"
+                        },
+                        {
+                            "date": "October 2, 2025",
+                            "location": "London, UK",
+                            "venue": "The O2"
+                        },
+                        {
+                            "date": "October 7, 2025",
+                            "location": "Manchester, UK",
+                            "venue": "Co-op Live"
+                        },
+                        {
+                            "date": "October 12, 2025",
+                            "location": "Stockholm, Sweden",
+                            "venue": "Avicii Arena"
+                        },
+                        {
+                            "date": "October 13, 2025",
+                            "location": "Stockholm, Sweden",
+                            "venue": "Avicii Arena"
+                        },
+                        {
+                            "date": "October 19, 2025",
+                            "location": "Milan, Italy",
+                            "venue": "Unipol Forum"
+                        },
+                        {
+                            "date": "October 20, 2025",
+                            "location": "Milan, Italy",
+                            "venue": "Unipol Forum"
+                        },
+                        {
+                            "date": "October 28, 2025",
+                            "location": "Barcelona, Spain",
+                            "venue": "Palau Sant Jordi"
+                        },
+                        {
+                            "date": "October 29, 2025",
+                            "location": "Barcelona, Spain",
+                            "venue": "Palau Sant Jordi"
+                        },
+                        {
+                            "date": "November 4, 2025",
+                            "location": "Berlin, Germany",
+                            "venue": "Uber Arena"
+                        },
+                        {
+                            "date": "November 5, 2025",
+                            "location": "Berlin, Germany",
+                            "venue": "Uber Arena"
+                        },
+                        {
+                            "date": "November 9, 2025",
+                            "location": "Amsterdam, Netherlands",
+                            "venue": "Ziggo Dome"
+                        },
+                        {
+                            "date": "November 11, 2025",
+                            "location": "Antwerp, Belgium",
+                            "venue": "Sportpaleis Arena"
+                        },
+                        {
+                            "date": "November 13, 2025",
+                            "location": "Lyon, France",
+                            "venue": "LDLC Arena"
+                        },
+                        {
+                            "date": "November 14, 2025",
+                            "location": "Lyon, France",
+                            "venue": "LDLC Arena"
+                        },
+                        {
+                            "date": "November 17, 2025",
+                            "location": "Paris, France",
+                            "venue": "Accor Arena"
+                        },
+                        {
+                            "date": "November 18, 2025",
+                            "location": "Paris, France",
+                            "venue": "Accor Arena"
+                        },
+                        {
+                            "date": "November 20, 2025",
+                            "location": "Paris, France",
+                            "venue": "Accor Arena"
+                        }
+                    ]
+                },
+                "presales": [
+                    {
+                        "name": "Citi Presale",
+                        "start_date": "March 31, 2025",
+                        "end_date": "April 2, 2025",
+                        "details_link": "http://www.citientertainment.com"
+                    },
+                    {
+                        "name": "Verizon Presale",
+                        "start_date": "April 1, 2025",
+                        "end_date": "April 2, 2025",
+                        "details_link": "http://verizon.com/Access"
+                    }
+                ],
+                "general_sale_date": "April 3, 2025",
+                "ticket_vendor": "Ticketmaster"
+            },
+            {
+                "event": "Outside Lands 2025",
+                "location": "San Francisco, CA",
+                "venue": "Golden Gate Park",
+                "dates": "August 8-10, 2025",
+                "ticket_sale_start": "March 26, 2025",
+                "headliners": [
+                    "Tyler, The Creator",
+                    "Hozier",
+                    "Doja Cat"
+                ],
+                "notable_performers": [
+                    "Vampire Weekend",
+                    "Gracie Abrams",
+                    "Doechii",
+                    "Jamie xx",
+                    "Ludacris"
+                ],
+                "ticket_info": {
+                    "general_admission_price": 499,
+                    "GA_plus_price": 759,
+                    "VIP_price": 1199,
+                    "Golden_Gate_Club_price": 5299
+                }
+            },
+            {
+                "artist": "Jonas Brothers",
+                "tour_name": "Jonas20: Living The Dream Tour",
+                "tour_dates": [
+                    {
+                        "date": "August 10, 2025",
+                        "location": "East Rutherford, NJ",
+                        "venue": "MetLife Stadium",
+                        "special_guests": "Marshmello, The All-American Rejects"
+                    },
+                    {
+                        "date": "August 12, 2025",
+                        "location": "Washington, DC",
+                        "venue": "Nationals Park",
+                        "special_guests": "Marshmello, The All-American Rejects"
+                    },
+                    {
+                        "date": "August 14, 2025",
+                        "location": "Philadelphia, PA",
+                        "venue": "Citizens Bank Park",
+                        "special_guests": "Marshmello, The All-American Rejects"
+                    },
+                    {
+                        "date": "August 17, 2025",
+                        "location": "Hershey, PA",
+                        "venue": "Hersheypark Stadium",
+                        "special_guests": "Marshmello, The All-American Rejects"
+                    },
+                    {
+                        "date": "August 21, 2025",
+                        "location": "Toronto, ON",
+                        "venue": "Rogers Centre",
+                        "special_guests": "Boys Like Girls"
+                    },
+                    {
+                        "date": "August 23, 2025",
+                        "location": "Boston, MA",
+                        "venue": "Fenway Park",
+                        "special_guests": "Boys Like Girls"
+                    },
+                    {
+                        "date": "August 26, 2025",
+                        "location": "Chicago, IL",
+                        "venue": "Wrigley Field",
+                        "special_guests": "Boys Like Girls"
+                    },
+                    {
+                        "date": "August 28, 2025",
+                        "location": "Detroit, MI",
+                        "venue": "Comerica Park",
+                        "special_guests": "Boys Like Girls"
+                    },
+                    {
+                        "date": "August 31, 2025",
+                        "location": "Arlington, TX",
+                        "venue": "Globe Life Field",
+                        "special_guests": "Boys Like Girls"
+                    }
+                ],
+                "presales": [
+                    {
+                        "name": "Artist Presale",
+                        "start_date": "March 27, 2025",
+                        "end_date": "March 28, 2025",
+                        "details_link": "https://livemu.sc/jonasbrothers"
+                    }
+                ],
+                "general_sale_date": "March 28, 2025",
+                "ticket_vendor": "Ticketmaster"
+            }
+        ]
     }
 ]

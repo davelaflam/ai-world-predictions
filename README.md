@@ -1,134 +1,211 @@
-# Unit AI-2: Movie Recommendation RAG App
 
-## Summary
+# AI World Predictions App
 
-You will be building a RAG-powered movie recommendation app. 🎥
+The AI World Predictions App is designed to provide AI-driven predictions for world events using a Retrieval-Augmented Generation (RAG) approach. It uses data from crawled news sources and prediction markets (Kalshi, Polymarket), stores it in Pinecone, and applies OpenAI's GPT-4o for reasoning and prediction.
 
-## Learning objectives
+---
 
-- Develop proficiency with RAG and vector databases.
-- Cultivate instincts and strategies for evaluating retrieval, augmentation, and generation – as units and as an integrated whole.
-- Build a functional prototype of a full-stack RAG application.
+## 🧠 Core Features
 
-## Getting started
+- **Fast Mode** – Quick GPT-4o inference with real-time market data.
+- **Deep Mode** – RAG-enhanced predictions using Pinecone vector search.
+- **Council Mode** – Multi-agent reasoning with technical, sentiment, macroeconomic, and risk experts.
+- **Live Market Data** – Integrated Kalshi and Polymarket predictions.
+- **Structured ETL Pipeline** – Firecrawl + GPT-4o used for structured markdown extraction and JSON parsing.
+- **Dynamic Logging** – Verbose logs with inference tracing and system metrics.
 
-- Fork and clone this repo
-- Add an `upstream` link to the CodesmithLLC repo
-- Add a `partner` link to your partner's repo
-- Use `git push origin main` and `git pull partner main` to stay in sync
+---
 
-## Challenges
+## 🏗️ System Architecture
 
-### Data processing
+```
+                        ┌────────────────────────────┐
+                        │        React Frontend      │
+                        │   (Recommendations.tsx)    │
+                        └────────────┬───────────────┘
+                                     │
+                                     ▼
+                           ┌────────────────┐
+                           │   REST API     │ ◀────────┐
+                           └──────┬─────────┘          │
+                                  │                    │
+                                  ▼                    │
+          ┌─────────────────────────────┐              │
+          │   Prediction Modes (RAG)    │              │
+          │  • Fast (GPT)               │              │
+          │  • Deep (RAG + GPT)         │              │
+          │  • Council (Multi-Agent)    │              │
+          └────┬────────────────┬───────┘              │
+               │                │                      │
+               ▼                ▼                      │
+   ┌──────────────────┐    ┌───────────────┐           │
+   │ Pinecone VectorDB │    │ Market APIs   │◀───┐     │
+   └──────────────────┘    │ Kalshi + Poly │     │     │
+                           └───────────────┘     │     │
+                                                 │     │
+┌─────────────┐        ┌─────────────┐           │     │
+│ Data Source │──────▶ │ Web Crawler │───────────┘     │
+└─────────────┘        └─────────────┘                 │
+         ▲ RSS/APIs                                    │
+     ┌────────────┐                                    │
+     │ Firecrawl  │                                    │
+     └────────────┘                                    │
+             ▼                                         │
+         ┌─────────────┐       ┌────────────────────────┐
+         │ Pinecone DB │◀──────│ Embeddings & Upsertion │
+         └─────────────┘       └────────────────────────┘
 
-- Download the compressed, preprocessed dataset [here](https://drive.google.com/file/d/1u_4BkOEncctgGij0FpPJfz7Fds4CVxiO/view?usp=sharing). Decompress it 💆 and store `embeddings_data.json` in the `offline` dir in this repo.
-- Sign up for the “Starter” free tier on [Pinecone](https://www.pinecone.io/), store your API key in a `.env` file, and then create a “movies” index through the Pinecone browser console using the recommended metric + dimensions for `text-embedding-3-small` (leave other options unchanged to remain within the free tier).
-- Run the batch processing pipeline with `npm run upsert-batch` to upsert the embeddings into your Pinecone index. If you run into Pinecone network errors, there's a line you can uncomment in `offline/upsert-batch.ts`. Take a look in the Pinecone browser console to confirm that everything worked!
+Backend Services:
+- REST API (Express.js)
+- OpenAI GPT-4o Inference
+- Kalshi/Polymarket Fetchers
+- Pinecone Query Service
 
-### Initial app setup
+Frontend:
+- React UI (MUI + Axios)
+- Modes: Fast / Deep / Council
+```
 
-- Create an OpenAI api key for this project and add it to your `.env` file.
-- As with Unit-AI-1, I **highly recommend TDD** ✅
-- Integrate `text-embedding-3-small` for embeddings and a GPT model for chat completions.
-- Integrate your vector DB.
-- Implement the `post('/api')` route using your middleware functions.
+---
 
-### Evaluation
+## 🔧 Getting Started
 
-The fundamental challenge here, as in Unit AI-1, is: How can you be confident that your LLM interactions work as expected? But there are now several dimensions to consider:
+### 1. Clone the Repository
 
-- How should you test whether you’re retrieving the “right” results through semantic search?
-  - Are your results accurate?
-  - Are they precise?
-  - Are they ranked correctly?
-  - What other considerations are relevant for this use case? If you (as a proxy for your users) are not interested in watching the movie(s) that are retrieved, how can you improve the results?
-- How should you test the impact of the results on the LLM’s generated response?
-  - Is its response faithful to the context provided? Is it recommending one of the retrieved results? Is it generating summaries based on the plots provided to it, or is it using its own “knowledge”? Are there metrics that could be helpful here?
-  - Is its answer relevant to the user’s question?
-- How should you balance feasibility and efficiency against efficacy in evaluation?
+```bash
+git clone https://github.com/your-username/ai-world-predictions.git
+cd ai-world-predictions
+```
 
-Remember to consider reliability (using an appropriate acceptance threshold) and any appropriate metrics or benchmarks!
+### 2. Setup Environment
 
-### Iteration
+Create a `.env` file in the project root:
 
-Keeping track of your efforts is _even more important_ when there are several steps (each with their own input and output) along the way. How can you implement logging in a way that facilitates your development process?
+```
+# FireCrawl configuration
+FIRECRAWL_API_KEY=
 
-### MVP goal: Search by summary
+# Kalshi configuration
+KALSHI_API_URL=https://api.elections.kalshi.com
+KALSHI_API_KEY_ID=""
+KALSHI_API_PRIVATE_KEY=""
 
-Your MVP goal is for the user to be able to get a movie recommendation (including a brief description) based on a summary they provide. How should you test this functionality given that movie recommendations are so subjective? Think about ways you can _strongly_ push the model in a particular direction:
+# OpenAI configuration
+OPENAI_API_KEY=
 
-- What if you search using a summary that’s included word-for-word in your embedded data?
-- What about slightly rephrasing a summary?
-- What about movie franchises or collections of movies that are highly related?
+# Pinecone configuration
+PINECONE_API_KEY=
+PINECONE_ENVIRONMENT=us-east-1
+PINECONE_INDEX=
 
-**Make sure you’re testing and optimizing the retrieval, augmentation, _and_ generation!** And don’t forget the importance of building a golden dataset to facilitate iteration and guard against regressions.
+# Polymarket API Configuration
+POLYMARKET_API_URL="https://clob.polymarket.com"
 
-### Stretch goal 1: Filter by year
+PORT=3000
+VERBOSE=false
 
-Your users would love to be able to specify a range of years to improve the recommendations they receive! And one of the best ways to optimize a RAG app is with metadata filtering.
+# Frontend Configuration
+REACT_APP_BACKEND_API_PORT=3000
+REACT_APP_BACKEND_API_URL=http://localhost:3000
+```
 
-- Add two additional front-end inputs for the user to specify a range of years to search between (`startYear` and `endYear`).
-- Modify your back-end to incorporate this filter _if specified by the user_.
-- Make sure to handle edge cases where no results are returned!
+### 3. Install Dependencies
 
-### Stretch goal 2: Search by title
+```bash
+pnpm install
+```
 
-Your users want to be able to search by summary _or_ by title! Of course, you want to make use of your company’s primary DB to retrieve summaries for the titles they input 👍
+---
 
-- Log into your [MongoDB account](https://account.mongodb.com/account/login), create a new project, create a new cluster in that project (**make sure to choose the M0 free tier!),** and preload the sample dataset (you can do this when creating the cluster or immediately after). You’ll be using the `movies` collection from the [sample_mflix dataset](https://www.mongodb.com/docs/atlas/sample-data/sample-mflix/).
-- Add a toggle on the front end for the user to specify whether they’re searching by **summary** or by **title**.
-- Integrate your Mongo DB on the back end so you can perform a semantic search in Pinecone based on the summary retrieved from Mongo.
-- What should you do if the title isn’t found in the Mongo DB?
+## 🚀 Running the App
 
-### Stretch goal 3: Natural language search
+### Start the Express Server
 
-Your users _really_ want to get recommendations based _solely_ on a natural language query, with no toggles or separate filter inputs! If only there was a tool you could use to parse natural language 🤔
+```bash
+pnpm start
+```
 
-- Implement a query parser on the back end to determine whether the user is searching by title or summary and extract any valid filters.
-- Restructure your back end as needed.
-- Ditch the toggles and year inputs on the front end.
+Console logs will show:
+- ✅ Registered Kalshi / Polymarket routes
+- ✅ Pinecone init status
+- 📊 Model outputs per inference
 
-### Stretch goal 4: Additional filters and search by vibe
+### Start the React Frontend
 
-Good thing you’re collecting all this user feedback!
+```bash
+cd client
+pnpm install
+pnpm dev
+```
 
-- Add support for filtering by genre and by director.
-- Add a “search by vibe” capability. 💫 How can you still use semantic search here…can your GPT model provide an effective search query?
+---
 
-### Stretch goal 5: Fine-tuning
+## 🕸️ Crawlers & ETL
 
-Your GPT model is doing a decent job of distinguishing search by summary vs title vs vibe, but it doesn't always get it right. Since it seems easier to "show, not tell" the differences, you've decided to try fine-tuning! take everything you learned (and logged!) while iterating on your prompt and use it to fine-tune your very own `gpt-4o-mini` as explained in the [OpenAI docs](https://platform.openai.com/docs/guides/fine-tuning).
+Crawlers live in `server/services/webScraping/crawlers`.
 
-### Stretch goal 6: User preferences
+To run the **entertainment** crawler and load Pinecone:
 
-You’re really looking for an edge 💡 How can your app get to know your users better? Implement one or more of these options:
+```bash
+pnpm tsx server/services/webScraping/crawlers/entertainmentCrawler.ts
+pnpm tsx server/services/pineconeIngest.ts
+```
 
-- Provide a mechanism for the user to provide feedback about the recommendations they receive and provide a new recommendation if the first one is rejected.
-- Provide an input where the user can specify general preferences and figure out how best to incorporate them into your recommendations.
-- Ask the user for their top 5 movies and build that information into your recommendations.
-- Any similar strategy!
+You can repeat for `sportsCrawler.ts`, `worldCrawler.ts`, etc.
 
-### Stretch goal 7: More movies!
+---
 
-Your users want more variety in the recommendations they receive!
+## 🧪 API Routes
 
-- Download the full dataset from [Kaggle](https://www.kaggle.com/datasets/jrobischon/wikipedia-movie-plots).
-- Preprocess the data by adding an `id` column (and entering IDs), modifying the column names to match your existing schema, and cleaning as needed (look out for empty rows!).
-- Add several components to your offline data pipeline:
-  - Load the CSV and parse it.
-  - Create batches for OpenAI so you can [embed multiple inputs in a single request](https://platform.openai.com/docs/api-reference/embeddings/create?lang=node.js).
-  - Generate embeddings for those batches. I highly recommend saving each response along the way so you don’t lose your progress!
-- Upsert your new embeddings to Pinecone.
+- `GET /kalshi/markets`
+- `GET /polymarket/markets`
+- `POST /predict`  
+  Payload:
+  ```json
+  {
+    "prompt": "Who will win the Super Bowl?",
+    "mode": "council",
+    "timeframe": "short"
+  }
+  ```
 
-## Further extensions
+---
 
-First and foremost, **_make your testing more robust!_** If you want to keep iterating on this app, consider reducing costs, reducing latency, improving security, incorporating monitoring, and so on.
+## 🧰 Project Structure
 
+```
+├── client/             # React frontend (Recommendations.tsx)
+├── server/
+│   ├── routes/         # Express routers
+│   ├── services/       # Kalshi, Polymarket, Pinecone, OpenAI
+│   ├── webScraping/    # Firecrawl + GPT crawlers
+│   ├── pineconeIngest.ts
+│   ├── openaiService.ts
+│   └── app.ts
+└── .env
+```
 
-## Todo
-- 🔍 Bonus: You may want to extend extractArticlesFromData() to include nested articles or articles[] fields.
-- 🧠 NEXT UP
+---
 
-If you want parity with pandas.DataFrame analytics in Python:
-•	Add advanced stats to getLeaderboard(): win rate, avg PnL, etc.
-•	Or integrate something like duckdb-wasm for real analytics right in Node.js later.
+## 🧠 Team Members
+
+- Ashley Pean
+- Dave LaFlam
+- Jamie Highsmith
+- John Maltese
+- Will Kencel
+
+---
+
+## 📈 Future Enhancements
+
+- Auto-trigger crawlers on schedule (CRON)
+- Model feedback loop based on user voting
+- Auto-delete Pinecone-ingested JSONs
+- Add trading signals to frontend for active bets
+
+---
+
+## License
+
+MIT License

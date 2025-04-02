@@ -2,6 +2,7 @@ import { OpenAI } from 'openai'
 import dotenv from 'dotenv'
 import { LoggerService } from './logger/LoggerService.js'
 import { getMarkets } from './kalshiService.js'
+import { getPolymarketMarkets } from './polymarketService.js'
 import { queryPinecone } from './pineconeService.js'
 
 dotenv.config()
@@ -37,9 +38,7 @@ class AgentPerformanceTracker {
   private performanceLog: PredictionLog[] = []
 
   constructor() {
-    const historicalData: PredictionLog[] = [
-      // ... (same historical data as before)
-    ]
+    const historicalData: PredictionLog[] = []
     this.performanceLog = historicalData
     LoggerService.info('Performance tracker initialized with historical data')
     LoggerService.info('Initial Leaderboard: ' + JSON.stringify(this.getLeaderboard()))
@@ -143,16 +142,8 @@ Return ONLY a valid JSON object with NO additional text or formatting:
 {
   "prediction": "clear win/loss prediction",
   "confidence": number between 0-100,
-  "factors": [
-    "factor1 specific to ${expert.role}",
-    "factor2 specific to ${expert.role}",
-    "factor3 specific to ${expert.role}"
-  ],
-  "risks": [
-    "risk1 specific to ${expert.role}",
-    "risk2 specific to ${expert.role}",
-    "risk3 specific to ${expert.role}"
-  ]
+  "factors": ["factor1", "factor2", "factor3"],
+  "risks": ["risk1", "risk2", "risk3"]
 }
 
 Scenario: ${enrichedPrompt}`
@@ -173,27 +164,36 @@ export async function generateResponse(
   mode: 'fast' | 'deep' | 'council' = 'fast',
   maxTokens = 500,
   timeframe = 'short',
-  currentPrice?: number
+  currentPrice = 100
 ): Promise<any> {
   LoggerService.info(`🤖 Starting new prediction request - Mode: ${mode}`)
+  LoggerService.info(`🧠 [${mode.toUpperCase()}] Prompt received: "${prompt}"`)
+
   if (mode === 'fast' || mode === 'deep') {
     const isDeep = mode === 'deep'
     let marketContext = 'Unavailable'
+
     try {
-      const kalshiData = await getMarkets(25, undefined, undefined, undefined, 'active', undefined, 1000)
-      const markets = kalshiData.markets || []
-      const nflMarkets = markets.filter((m: any) => m.ticker?.includes('NFL') || m.ticker?.includes('SB'))
-      if (!nflMarkets.length) throw new Error('No NFL market data')
-      marketContext =
-        '\n\n📊 AVAILABLE BETTING MARKETS:\n' +
-        nflMarkets
-          .map(
-            (m: any) =>
-              `• ${m.title || 'Unknown'} (${m.ticker || 'N/A'})\n  YES $${m.yes_price || 'N/A'} | NO $${m.no_price || 'N/A'}\n  Volume: $${m.volume || 0}\n  ROI: YES ${m.yes_roi?.toFixed(1) || 0}% | NO ${m.no_roi?.toFixed(1) || 0}%`
-          )
-          .join('\n')
+      const [kalshiData, polymarketData] = await Promise.all([
+        getMarkets(25, undefined, undefined, undefined, 'active', undefined, 1000),
+        getPolymarketMarkets(),
+      ])
+
+      const kalshiMarkets = kalshiData.markets || []
+      const polymarkets = Array.isArray(polymarketData) ? polymarketData : []
+
+      LoggerService.info(`✅ Fetched ${kalshiMarkets.length} Kalshi markets`)
+      LoggerService.info(`✅ Fetched ${polymarkets.length} Polymarket markets`)
+
+      const formatMarket = (m: any, source: string) =>
+        `• [${source}] ${m.title || 'Unknown'} (${m.ticker || m.id || 'N/A'})\n  YES $${m.yes_price || m.yesPrice || 'N/A'} | NO $${m.no_price || m.noPrice || 'N/A'}\n  Volume: $${m.volume || m.volumeUSD || 0}`
+
+      const formattedKalshi = kalshiMarkets.map((m: any) => formatMarket(m, 'Kalshi')).join('\n')
+      const formattedPoly = polymarkets.map((m: any) => formatMarket(m, 'Polymarket')).join('\n')
+
+      marketContext = `${formattedKalshi}\n${formattedPoly}`
     } catch (e: any) {
-      LoggerService.warning(`Market fetch failed: ${e.message}`)
+      LoggerService.warning(`⚠️ Market fetch failed: ${e.message}`)
     }
 
     let historicalContext = ''
@@ -201,8 +201,9 @@ export async function generateResponse(
       try {
         const rag = await queryPinecone(prompt)
         historicalContext = rag.matches.map((m: any) => m.metadata.text).join('\n')
+        LoggerService.info(`📚 Pinecone RAG returned ${historicalContext.length} characters of context`)
       } catch (e: any) {
-        LoggerService.warning(`RAG context error: ${e.message}`)
+        LoggerService.warning(`⚠️ RAG context error: ${e.message}`)
       }
     }
 
@@ -239,11 +240,10 @@ Confidence: [X]%
 • Max Gain
 • Win Probability`
 
+    LoggerService.debug(`📝 Sending prompt to OpenAI (${mode}): ${fullPrompt.slice(0, 300)}...`)
+
     const messages: ChatMessage[] = [
-      {
-        role: 'system',
-        content: `You are a ruthless ROI-focused prediction market expert.`,
-      },
+      { role: 'system', content: `You are a ruthless ROI-focused prediction market expert.` },
       { role: 'user', content: fullPrompt },
     ]
 

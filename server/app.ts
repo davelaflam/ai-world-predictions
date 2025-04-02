@@ -28,8 +28,16 @@ app
     res.status(201).json({ you_sent: req.body })
   })
 
+// Custom log to confirm routes are registering
+console.log('✅ Registering /predict routes...')
 app.use('/predict', predictRouter)
+
+console.log('✅ Registering /kalshi routes...')
 app.use('/kalshi', kalshiRouter)
+
+console.log('✅ Registering /polymarket routes...')
 app.use('/polymarket', polymarketRouter)
+
+console.log('🚀 Express app configured!')
 
 export default app

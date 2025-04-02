@@ -24,9 +24,10 @@ async function makeRequest(method: 'GET', path: string, params?: Record<string, 
   }
 }
 
-export async function getPolymarketMarkets(): Promise<any> {
+export async function getPolymarketMarkets(): Promise<any[]> {
   const path = '/markets'
-  return makeRequest('GET', path)
+  const response = await makeRequest('GET', path)
+  return response.data || [] // ✅ Return the `data` field which is the actual market list
 }
 
 export async function getPolymarketMarket(conditionId: string): Promise<any> {
