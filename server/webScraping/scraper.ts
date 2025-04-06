@@ -1,12 +1,11 @@
 import dotenv from 'dotenv'
-import FirecrawlApp from 'firecrawl' // Ensure correct import
+import FirecrawlApp from 'firecrawl'
 import { LoggerService } from '../services/logger/LoggerService.js'
 import { extractDataFromContent } from './scraperUtils.js'
 import { OpenAI } from 'openai'
 
 dotenv.config()
 
-// Ensure the API key exists in .env
 const FIRECRAWL_API_KEY = process.env.FIRECRAWL_API_KEY || ''
 const GPT_MODEL = 'gpt-4o'
 const MAX_TOKENS = 100000

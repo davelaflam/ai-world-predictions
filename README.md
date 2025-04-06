@@ -12,7 +12,6 @@ The AI World Predictions App is designed to provide AI-driven predictions for wo
 - **Council Mode** – Multi-agent reasoning with technical, sentiment, macroeconomic, and risk experts.
 - **Live Market Data** – Integrated Kalshi and Polymarket predictions.
 - **Structured ETL Pipeline** – Firecrawl + GPT-4o used for structured markdown extraction and JSON parsing.
-- **Dynamic Logging** – Verbose logs with inference tracing and system metrics.
 
 ---
 
@@ -39,32 +38,34 @@ The AI World Predictions App is designed to provide AI-driven predictions for wo
                │                │                      │
                ▼                ▼                      │
    ┌──────────────────┐    ┌───────────────┐           │
-   │ Pinecone VectorDB │    │ Market APIs   │◀────┐     │
+   │ Pinecone VectorDB│    │ Market APIs   │◀────┐     │
    └──────────────────┘    │ Kalshi + Poly │     │     │
                            └───────────────┘     │     │
                                                  │     │
 ┌─────────────┐        ┌─────────────┐           │     │
-│ Data Source │──────▶│ Web Crawler │────────────┘     │
+│ Data Source │──────▶ │ Web Crawler │───────────┘     │
 └─────────────┘        └─────────────┘                 │
          ▲ RSS/APIs                                    │
+         │                                             │
      ┌────────────┐                                    │
      │ Firecrawl  │                                    │
      └────────────┘                                    │
-             ▼                                          │
-         ┌─────────────┐       ┌────────────────────────┐
-         │ Pinecone DB │◀──────│ Embeddings & Upsertion │
-         └─────────────┘       └────────────────────────┘
+              │                                        │
+              ▼                                        │
+        ┌─────────────┐       ┌────────────────────────┐
+        │ Pinecone DB │◀──────│ Embeddings & Upsertion │
+        └─────────────┘       └────────────────────────┘
 
 Summary of Flow:
-•	React UI sends prediction requests to /predict with user input.
-•	The REST API processes the request, fetching:
-	•	Kalshi + Polymarket market data
-  •	Pinecone context via RAG
-•	Based on mode:
-	•	Fast: Direct GPT-4o response
-	•	Deep: RAG-enhanced GPT-4o
-	•	Council: Multi-agent GPT-based consensus
-•	Real-time embeddings are managed via the web crawler → Firecrawl → Pinecone pipeline.
+• React UI sends prediction requests to /predict with user input.
+• The REST API processes the request, fetching:
+  • Kalshi + Polymarket market data
+  • Pinecone context via RAG
+• Based on mode:
+  • Fast: Direct GPT-4o response
+  • Deep: RAG-enhanced GPT-4o
+  • Council: Multi-agent GPT-based consensus
+• Real-time embeddings are managed via the web crawler → Firecrawl → Pinecone pipeline.
 
 Backend Services:
 - REST API (Express.js)
@@ -141,13 +142,8 @@ Console logs will show:
 - ✅ Pinecone init status
 - 📊 Model outputs per inference
 
-### Start the React Frontend
-
-```bash
-cd client
-pnpm install
-pnpm dev
-```
+#### View the Frontend App
+- http://localhost:8080/
 
 ---
 
@@ -185,14 +181,24 @@ You can repeat for `sportsCrawler.ts`, `worldCrawler.ts`, etc.
 ## 🧰 Project Structure
 
 ```
-├── client/             # React frontend (Recommendations.tsx)
+├── client/                                 # React frontend
 ├── server/
-│   ├── routes/         # Express routers
-│   ├── services/       # Kalshi, Polymarket, Pinecone, OpenAI
-│   ├── webScraping/    # Firecrawl + GPT crawlers
-│   ├── pineconeIngest.ts
-│   ├── openaiService.ts
-│   └── app.ts
+│   ├── routes/                             # Express routers
+│   ├── services/                           # Kalshi, Polymarket, Pinecone, OpenAI
+│   │   ├── logger/
+│   │   ├── kalshiService.ts
+│   │   ├── openaiService.ts
+│   │   ├── pineconeIngest.ts
+│   │   ├── pineconeService.ts
+│   │   └── polymarketService.ts
+│   ├── webScraping/
+│   │   ├── crawlers/
+│   │   │   ├── entertainmentCrawler.ts
+│   │   │   ├── politicsCrawler.ts
+│   │   │   ├── sportsCrawler.ts
+│   │   │   └── worldCrawler.ts
+│   ├── app.ts
+│   └── server.ts
 └── .env
 ```
 

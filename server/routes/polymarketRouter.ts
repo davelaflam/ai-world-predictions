@@ -1,4 +1,3 @@
-// server/routes/polymarketRouter.ts
 import express from 'express'
 import { getPolymarketMarkets, getPolymarketMarket } from '../services/polymarketService.js'
 

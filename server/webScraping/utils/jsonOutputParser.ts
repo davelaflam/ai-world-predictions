@@ -3,7 +3,6 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import { LoggerService } from '../../services/logger/LoggerService.js'
 
-// ✅ Fix __dirname for ES Modules (since it's not available by default)
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
@@ -14,7 +13,6 @@ export function saveJsonPretty(data: any, filename: string): void {
   try {
     const filePath = path.join(__dirname, '../outputs', filename)
 
-    // ✅ Ensure directory exists
     const outputDir = path.dirname(filePath)
     if (!fs.existsSync(outputDir)) {
       LoggerService.info(`Creating output directory: ${outputDir}`)

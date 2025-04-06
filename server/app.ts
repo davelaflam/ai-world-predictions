@@ -5,6 +5,7 @@ import 'dotenv/config'
 import kalshiRouter from './routes/kalshiRouter.js'
 import polymarketRouter from './routes/polymarketRouter.js'
 import predictRouter from './routes/predictRouter.js'
+import { LoggerService } from './services/logger/LoggerService.js'
 
 const app = express()
 
@@ -28,16 +29,15 @@ app
     res.status(201).json({ you_sent: req.body })
   })
 
-// Custom log to confirm routes are registering
-console.log('✅ Registering /predict routes...')
+LoggerService.info('✅ Registering /predict routes...')
 app.use('/predict', predictRouter)
 
-console.log('✅ Registering /kalshi routes...')
+LoggerService.info('✅ Registering /kalshi routes...')
 app.use('/kalshi', kalshiRouter)
 
-console.log('✅ Registering /polymarket routes...')
+LoggerService.info('✅ Registering /polymarket routes...')
 app.use('/polymarket', polymarketRouter)
 
-console.log('🚀 Express app configured!')
+LoggerService.info('🚀 Express app configured!')
 
 export default app

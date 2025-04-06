@@ -6,9 +6,9 @@ import { LoggerService } from '../services/logger/LoggerService.js'
  */
 export async function extractDataFromContent(
   content: string,
-  _dataPoints: any[], // Prefixed unused arguments with `_`
-  _linksScraped: string[], // Prefixed unused arguments with `_`
-  _url: string // Prefixed unused arguments with `_`
+  _dataPoints: any[],
+  _linksScraped: string[],
+  _url: string
 ): Promise<any> {
   try {
     const openai = new OpenAI({

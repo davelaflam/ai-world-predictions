@@ -1,16 +1,11 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { ThemeProvider, createTheme } from '@mui/material/styles'
+import { ThemeProvider } from '@mui/material/styles'
 
 import './styles.css'
 import Recommendations from './Components/Recommendations'
 import TopNav from './Components/TopNav'
-
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-})
+import darkTheme from './theme/darkTheme'
 
 const App = () => {
   return (
