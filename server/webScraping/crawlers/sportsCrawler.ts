@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 import { LoggerService } from '../../services/logger/LoggerService.js'
 import { extractSportsLinks } from '../freshRSS/sportsLinks.js'
 import { saveJsonPretty } from '../utils/jsonOutputParser.js'
-import { ingestSportsArticles } from '../../services/pineconeIngest.js'
+import { ingestSportsArticles } from '../../services/pineconeIngestSports.js'
 import FirecrawlApp from 'firecrawl'
 import { OpenAI } from 'openai'
 

@@ -58,5 +58,63 @@
             "San Antonio",
             "Brooklyn"
         ]
+    },
+    {
+        "title": "Cutter Gauthier scores 2 goals to lead Ducks past short-handed Oilers 3-2",
+        "author": "Unknown",
+        "date": "Unknown",
+        "url": "Unknown",
+        "summary": "Cutter Gauthier scored two goals in the second period and Lukas Dostal made a season-high 47 saves, leading the Anaheim Ducks to a 3-2 victory over the Edmonton Oilers. Despite missing key players due to injuries, the Oilers could not clinch a playoff berth. Mason McTavish also scored for the Ducks.",
+        "quote": "Gauthier tied it early in the second with a one-timer off a pass from Leo Carlsson. The rookie scored again five minutes later, driving the net and roofing a backhand for his third multi-goal game.",
+        "figures": [
+            "Cutter Gauthier",
+            "Lukas Dostal",
+            "Mason McTavish",
+            "Adam Henrique",
+            "Jeff Skinner",
+            "Olivier Rodrigue",
+            "Evan Bouchard"
+        ],
+        "organizations": [
+            "Anaheim Ducks",
+            "Edmonton Oilers",
+            "Calgary",
+            "San Jose",
+            "Los Angeles",
+            "Seattle"
+        ]
+    },
+    {
+        "title": "Klapka, Frost help Flames rally in third period to beat Sharks 3-2",
+        "author": "AP",
+        "date": "Unknown",
+        "url": "Unknown",
+        "summary": "Adam Klapka and Morgan Frost scored to lead the Calgary Flames to a comeback victory against the San Jose Sharks with a 3-2 win. The Flames managed to secure the win with three goals in the third period.",
+        "quote": "Wolf made two saves on two quick shots from Celebrini in the second period that kept the Sharks from adding to their 1-0 lead. The second save was with Wolf sprawled out on the ice.",
+        "figures": [],
+        "organizations": [
+            "San Jose Sharks",
+            "Calgary Flames",
+            "NHL"
+        ]
+    },
+    {
+        "title": "Utah faces Portland, looks to stop 9-game skid",
+        "author": "The Associated Press",
+        "date": "Unknown",
+        "url": "Unknown",
+        "summary": "The Utah Jazz, currently on a nine-game losing streak, are set to face the Portland Trail Blazers. Walker Kessler and Collin Sexton are notable performers for the Jazz, while Anfernee Simons and Deni Avdija are top performers for the Trail Blazers. Injuries for both teams could play a significant role in the outcome of the game.",
+        "quote": "Utah looks to end its nine-game skid when the Jazz play Portland.",
+        "figures": [
+            "The Jazz are 2-11 against Northwest Division teams.",
+            "The Trail Blazers have an 18-35 record against teams over .500.",
+            "Walker Kessler averaging 11.1 points, 12.2 rebounds, 2.4 blocks.",
+            "Anfernee Simons averaging 19.3 points and 4.8 assists."
+        ],
+        "organizations": [
+            "Utah Jazz",
+            "Portland Trail Blazers",
+            "Associated Press"
+        ]
     }
 ]

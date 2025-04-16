@@ -29,22 +29,30 @@ function extractMetadata(article: any): {
     article?.main_article_details?.headline ||
     article?.main_article?.title ||
     'Untitled'
-  const author = article.author || article.byline || article?.main_article_details?.author || 'Unknown'
+
+  const author =
+    article.author || article.byline || article?.main_article_details?.author || article?.metadata?.author || 'Unknown'
+
   const date =
     article.date ||
     article.publication_date ||
     article?.main_article_details?.date ||
     article?.main_article?.publication_date ||
+    article?.metadata?.date ||
     article?.key_dates?.[0]?.date ||
     'Unknown'
+
   const url =
     article.url ||
     article.link ||
     article?.source_urls?.[0] ||
+    article?.metadata?.url ||
     article?.source_links?.[0] ||
     article?.main_article_details?.publications?.[0]?.link ||
     'https://unknown-source'
-  const summary = article.summary || article.content || article.content_summary || JSON.stringify(article)
+
+  const summary =
+    article.summary || article.content || article.content_summary || article.markdown || JSON.stringify(article)
 
   return {
     title: typeof title === 'string' ? title : 'Untitled',

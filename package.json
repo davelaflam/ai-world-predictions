@@ -14,6 +14,12 @@
     "run:politics": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./server/webScraping/crawlers/politicsCrawler.ts",
     "run:sports": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./server/webScraping/crawlers/sportsCrawler.ts",
     "run:world-news": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./server/webScraping/crawlers/worldNewsCrawler.ts",
+    "ingest": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./server/services/pineconeIngestAll.ts",
+    "ingest:entertainment": "pnpm ingest entertainment",
+    "ingest:politics": "pnpm ingest politics",
+    "ingest:sports": "pnpm ingest sports",
+    "ingest:world-news": "pnpm ingest world-news",
+    "ingest:all": "pnpm ingest all",
     "upsert-batch": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./offline/upsert-batch.ts"
   },
   "keywords": [],

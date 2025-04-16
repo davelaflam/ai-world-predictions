@@ -175,18 +175,23 @@ export async function generateResponse(
 
     try {
       const [kalshiData, polymarketData] = await Promise.all([
-        getMarkets(25, undefined, undefined, undefined, 'active', undefined, 1000),
+        getMarkets(25, undefined, undefined, undefined, 'open', undefined, 1000),
         getPolymarketMarkets(),
       ])
 
       const kalshiMarkets = kalshiData.markets || []
       const polymarkets = Array.isArray(polymarketData) ? polymarketData : []
 
-      LoggerService.info(`✅ Fetched ${kalshiMarkets.length} Kalshi markets`)
-      LoggerService.info(`✅ Fetched ${polymarkets.length} Polymarket markets`)
+      if (!kalshiMarkets.length) LoggerService.warning('⚠️ No active Kalshi markets fetched')
+      if (!polymarkets.length) LoggerService.warning('⚠️ No active Polymarket markets fetched')
 
-      const formatMarket = (m: any, source: string) =>
-        `• [${source}] ${m.title || 'Unknown'} (${m.ticker || m.id || 'N/A'})\n  YES $${m.yes_price || m.yesPrice || 'N/A'} | NO $${m.no_price || m.noPrice || 'N/A'}\n  Volume: $${m.volume || m.volumeUSD || 0}`
+      const formatMarket = (m: any, source: string) => {
+        const yesPrice = m.yes_price || m.yesPrice
+        const noPrice = m.no_price || m.noPrice
+        const hasPrice = yesPrice && noPrice
+        const priceLine = hasPrice ? `YES $${yesPrice} | NO $${noPrice}` : 'No active price data'
+        return `• [${source}] ${m.title || 'Unknown'} (${m.ticker || m.id || 'N/A'})\n  ${priceLine}\n  Volume: $${m.volume || m.volumeUSD || 0}`
+      }
 
       const formattedKalshi = kalshiMarkets.map((m: any) => formatMarket(m, 'Kalshi')).join('\n')
       const formattedPoly = polymarkets.map((m: any) => formatMarket(m, 'Polymarket')).join('\n')
@@ -224,13 +229,13 @@ RESPOND IN THIS FORMAT:
 [Market Ticker] - [Market Title]
 Team/Selection: [SPECIFIC TEAM/OUTCOME]
 Position: [YES/NO]
-Entry Price: $[Current Price]
+Entry Price: $[Current Price or N/A if missing]
 Potential ROI: [X]%
 Size: [SMALL/MEDIUM/LARGE]
 Confidence: [X]%
 
 💰 WHY THIS BET:
-• ROI calculation
+• ROI calculation or N/A if not available
 • Market inefficiency
 • Supporting data
 
@@ -238,7 +243,7 @@ Confidence: [X]%
 • Risk
 • Max Loss
 • Max Gain
-• Win Probability`
+• Win Probability or N/A`
 
     LoggerService.debug(`📝 Sending prompt to OpenAI (${mode}): ${fullPrompt.slice(0, 300)}...`)
 
